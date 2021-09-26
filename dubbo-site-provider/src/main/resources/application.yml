@@ -1,0 +1,12 @@
+server:
+  port: 9001
+dubbo:
+  application:
+    name: site-service-provider
+  registry:
+    address: zookeeper://192.168.140.129:2181
+  protocol:
+    port: 20882
+  provider:
+    loadbalance:
+      leaseactive

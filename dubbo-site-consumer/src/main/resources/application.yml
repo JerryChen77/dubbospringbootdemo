@@ -1,0 +1,16 @@
+server:
+  port: 8001
+dubbo:
+  application:
+    name: site-consumer
+  registry:
+    address: zookeeper://192.168.140.129:2181
+  consumer:
+    loadbalance: leaseactive
+#    超时时间
+    timeout: 5000
+#    启动检查
+#Dubbo 缺省会在启动时检查依赖的服务是否可用，不可用时会抛出异常，阻止 Spring 初始化完成，以便上线时，能及早发现问题，默认 check=“true”。
+    check: true
+#    重试次数,当我们服务消费者消费出现失败，可通过 retries="2" 来设置重试次数(不含第一次)，多次调用服务提供者
+    retries: 2
